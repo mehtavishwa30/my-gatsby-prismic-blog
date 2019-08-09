@@ -1,10 +1,9 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { graphql } from 'gatsby';
-import Layout from '../components/layouts'
-import BlogPosts from '../components/BlogPosts'
+import Layout from '../components/Layout'
+import BlogList from '../components/BlogList'
 
-// Query for the Blog Home content in Prismic
 export const query = graphql`
 {
   prismic{
@@ -48,7 +47,7 @@ export const query = graphql`
 `
 
 // Using the queried Blog Home document data, we render the top section
-const BlogHomeHead = ({ home }) => {  
+const BlogHome = ({ home }) => {  
   const avatar = { backgroundImage: 'url(' + home.image.url +')' };
   return (
     <div className="home-header container">
@@ -66,7 +65,6 @@ const BlogHomeHead = ({ home }) => {
 };
 
 export default ({ data }) => {
-  // Define the Blog Home & Blog Post content returned from Prismic
   const doc = data.prismic.allBlog_homes.edges.slice(0,1).pop();
   const posts = data.prismic.allPosts.edges;
 
@@ -74,8 +72,8 @@ export default ({ data }) => {
 
   return(
     <Layout>
-      <BlogHomeHead home={ doc.node } />
-      <BlogPosts posts={ posts }/>
+      <BlogHome home={ doc.node } />
+      <BlogList posts={ posts }/>
     </Layout>
   )
 }

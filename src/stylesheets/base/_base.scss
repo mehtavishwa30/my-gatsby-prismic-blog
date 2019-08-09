@@ -2,10 +2,10 @@
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background: #FFF7C7; /* WebKit/Blink Browsers */
+  background: #FFF7C7; 
 }
 ::-moz-selection {
-  background: #FFF7C7; /* Gecko Browsers */
+  background: #FFF7C7; 
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
 
   @media (max-width: $max-width-sm) {

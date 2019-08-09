@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import Layout from '../components/layouts' 
-import { ImageCaption, Quote, Text } from '../components/slices'
+import Layout from '../components/Layout' 
+import { Image, Quote, Text } from '../components/slices'
 
-// Query for the Blog Post content in Prismic
 export const query = graphql`
 query BlogPostQuery($uid: String) {
   prismic{
@@ -50,8 +49,7 @@ query BlogPostQuery($uid: String) {
 }
 `
 
-// Sort and display the different slice options
-const PostSlices = ({ slices }) => {
+const Slices = ({ slices }) => {
   return slices.map((slice, index) => {
     const res = (() => {
       switch(slice.type) {
@@ -69,7 +67,7 @@ const PostSlices = ({ slices }) => {
 
         case 'image_with_caption': return (
           <div key={ index } className="homepage-slice-wrapper">
-            { <ImageCaption slice={ slice } /> }
+            { <Image slice={ slice } /> }
           </div>
         )
 
@@ -80,9 +78,8 @@ const PostSlices = ({ slices }) => {
   })
 }
 
-// Display the title, date, and content of the Post
-const PostBody = ({ blogPost }) => {
-  const titled = blogPost.title.length !== 0 ;
+const Body = ({ Post }) => {
+  const titled = Post.title.length !== 0 ;
   return (
     <div>
       <div className="container post-header">
@@ -92,24 +89,22 @@ const PostBody = ({ blogPost }) => {
           </ul>
         </div>
         <h1>
-          { titled ? RichText.asText(blogPost.title) : 'Untitled' }
+          { titled ? RichText.asText(Post.title) : 'Untitled' }
         </h1>
       </div>
-      {/* Go through the slices of the post and render the appropiate one */}
-      <PostSlices slices={ blogPost.body } />
+      <Slices slices={ Post.body } />
     </div>
   );
 }
 
 export default (props) => {
-  // Define the Post content returned from Prismic
   const doc = props.data.prismic.allPosts.edges.slice(0,1).pop();
 
   if(!doc) return null;
 
   return(
     <Layout>
-      <PostBody blogPost={ doc.node } />
+      <Body Post={ doc.node } />
     </Layout>
   )
 }

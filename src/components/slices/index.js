@@ -1,5 +1,5 @@
-import ImageCaption from './ImageCaption'
-import Quote from './Quote'
+import Image from './Image'
 import Text from './Text'
+import Quote from './Quote'
 
-export { ImageCaption, Quote, Text }
+export { Image, Quote, Text }

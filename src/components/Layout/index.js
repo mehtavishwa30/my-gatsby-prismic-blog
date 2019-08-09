@@ -21,7 +21,6 @@ export default props => (
 )
 
 const Layout = ( props ) => {
-  // Define the meta title and description
   const title = props.data.site.siteMetadata.title
   const description = props.data.site.siteMetadata.description
 

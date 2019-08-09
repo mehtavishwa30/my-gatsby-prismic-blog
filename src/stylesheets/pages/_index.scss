@@ -8,7 +8,7 @@
     border-radius: 50%;
     background-position: center;
     background-size: cover;
-    margin: 1em auto;
+    margin: 3em auto;
   }
 
   .blog-description {
@@ -26,14 +26,17 @@
     left: 0;
     z-index: 9999;
     width: 100%;
-    height: 50px;
-    background-color: #63454d;
+    height: 55px;
+    background-color: #90676e;
+    -webkit-box-shadow: 8px 8px 32px -4px rgba(0,0,0,0.49);
+    -moz-box-shadow: 8px 8px 32px -4px rgba(0,0,0,0.49);
+    box-shadow: 8px 8px 32px -4px rgba(0,0,0,0.49);
   }
   .navigation {
     list-style: none;
     margin: 0; 
     
-   background: #90676e;
+    background: linear-gradient(to bottom, #90676e, #63454d);
     
     display: -webkit-box;
     display: -moz-box;
@@ -47,13 +50,15 @@
   .navigation a {
     text-decoration: none;
     display: block;
-    padding: 0;
+    padding: 2px;
+    margin-right: 50px;
     color: white;
     font-family: Verdana;
   }
   
   .navigation a:hover {
     background-color: #63454d;
+    border-radius: 3px;
   }
   @media all and (max-width: 800px) {
     .navigation {
