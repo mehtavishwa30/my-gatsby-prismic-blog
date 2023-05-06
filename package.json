@@ -16,7 +16,7 @@
     "now-build": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "^2.1.32",
+    "gatsby": "^2.32.13",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.9",
     "gatsby-plugin-sass": "^2.0.11",
